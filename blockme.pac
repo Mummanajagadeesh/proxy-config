@@ -1,19 +1,14 @@
 function FindProxyForURL(url, host) {
   url = url.toLowerCase();
 
-  if (url.includes("mummanajagadeesh.github.io")) {
-    return "PROXY 127.0.0.1:9999";
-  }
-
-  if (url.includes("github.com/mummanajagadeesh")) {
-    return "PROXY 127.0.0.1:9999";
-  }
-
-  if (url.includes("linkedin.com/in/jagadeeesh-mummana")) {
-    return "PROXY 127.0.0.1:9999";
-  }
-
-  if (url.includes("youtube.com/@m_j_9_7")) {
+  // Block any URL that contains these substrings
+  if (
+    url.indexOf("mummanajagadeesh.github.io") !== -1 ||
+    url.indexOf("github.com/mummanajagadeesh") !== -1 ||
+    url.indexOf("linkedin.com/in/jagadeeesh-mummana") !== -1 ||
+    url.indexOf("youtube.com/@m_j_9_7") !== -1 ||
+    url.indexOf("youtube.com/channel/") !== -1 // In case it resolves to channel
+  ) {
     return "PROXY 127.0.0.1:9999";
   }
 
